@@ -5,7 +5,7 @@ $(function () {
     });
 });
 
-const kezdetiDb = 4;
+const kezdetiDb = 0;
 const lampak = [];
 const meret = 3;
 
@@ -15,6 +15,7 @@ class LOJatek {
         $(".infoSzoveg").html(this.kezdetiDb);
         this.ujJatek();
         $(window).on("kapcsolas", (event) => {
+            
             let aktId = event.detail.dataId;
             this.szomszedokValtoztatasa(aktId);
 
@@ -41,6 +42,7 @@ class LOJatek {
         for (let index = 0; index < meret * meret; index++) {
             if (lampak[index].allapot) {
                 db++;
+                
             }
         }
         return db;
@@ -49,7 +51,7 @@ class LOJatek {
         let db = 0;
         lampak.splice(0, lampak.length);
         new LampakJatekter($("article"));
-        console.log(this.kezdetiDb);
+        
         while (db < this.kezdetiDb) {
             let index = Math.floor(Math.random() * 9);
 
